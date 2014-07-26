@@ -15,19 +15,28 @@ config['webapp2_extras.sessions'] = {
 
 ##########
 
-class BasePage(BaseHandler):
+class FrontPage(BaseHandler):
     
     def get(self):
         self.render('index.html')
         
     def post(self):
         pass
-        
 
+
+class PeoplePage(BaseHandler):
+    
+    def get(self):
+        self.render('people.html')
+        
+    def post(self):
+        pass
+        
 ##########
 
 app = webapp2.WSGIApplication([
-      ('/', BasePage)],
+      ('/', FrontPage),
+      ('/people', PeoplePage)],
       config = config, debug = True)
 
 if __name__ == '__main__':
