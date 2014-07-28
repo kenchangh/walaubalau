@@ -32,11 +32,21 @@ class PeoplePage(BaseHandler):
     def post(self):
         pass
         
+        
+class AboutPage(BaseHandler):
+
+    def get(self):
+        self.render('about.html')
+        
+    def post(self):
+        pass
+        
 ##########
 
 app = webapp2.WSGIApplication([
       ('/', FrontPage),
-      ('/people', PeoplePage)],
+      ('/people', PeoplePage),
+      ('/about', AboutPage)],
       config = config, debug = True)
 
 if __name__ == '__main__':
